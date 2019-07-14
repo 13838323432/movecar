@@ -14,7 +14,7 @@ export default {
     console.log(setRem);
     setRem.setRem();
     window.onresize= setRem.setRem;
-    this.$router.push('/home')
+    // this.$router.push('/home')    //home
   }
 }
 </script>
