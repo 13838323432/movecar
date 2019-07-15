@@ -14,11 +14,8 @@ export default {
     console.log(setRem);
     setRem.setRem();
     window.onresize= setRem.setRem;
-<<<<<<< HEAD
     // this.$router.push('/home')    //home
-=======
     this.$router.push('/Locat')
->>>>>>> chenlulu37/master
   }
 }
 </script>
