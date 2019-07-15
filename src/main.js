@@ -3,6 +3,35 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+<<<<<<< HEAD
+=======
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper, /* { default global options } */);
+
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
+
+import Vuex from 'vuex';
+Vue.use(Vuex);
+
+let store = new Vuex.Store({
+  state:{
+    num:500,
+  },
+  mutations:{
+    change(state,v){
+      state.num = v;
+    },
+    changes(state,a){
+      state.num = a;
+    }
+  }
+})
+
+>>>>>>> chenlulu37/master
 Vue.config.productionTip = false
 //引用swiper
 import VueAwesomeSwiper from 'vue-awesome-swiper'
@@ -21,6 +50,7 @@ Vue.use(BaiduMap, {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
