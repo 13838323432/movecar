@@ -2,7 +2,7 @@
   <div class="carmess-box" >
           <div class="mess">
               <router-link to="/home">
-                    <img src="./../../assets/logo.png" alt="">
+                    <img src="./shopcar-img/car_lanniao@2x.png" alt="">
                     <p>日产轩逸  <span>￥93</span>/日均</p>
               </router-link>
           </div>
@@ -35,7 +35,7 @@ export default {
         .mess{
             padding:.1rem .1rem;
             img{
-                width:1.35rem;
+                width:1.5rem;
                 height:.45rem;
             }
             p{

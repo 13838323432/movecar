@@ -8,6 +8,15 @@ Vue.config.productionTip = false
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper,  )
+//引入vant组件
+import Vant from 'vant';
+import 'vant/lib/index.css';
+Vue.use(Vant);
+//引入地图组件
+import BaiduMap from 'vue-baidu-map'
+Vue.use(BaiduMap, {
+  ak: '0dWyNG1uG7vQLwHkhrj9m8Mf4P4UsCOt'
+})
 
 new Vue({
   el: '#app',

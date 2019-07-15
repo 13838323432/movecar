@@ -3,11 +3,11 @@
     <div class="side-content" >
       <!-- 用户信息 -->
       <div class="side-use">
-        <img src="./../../assets/logo.png" alt />
+        <img src="./../jqy/sidebar-img/touxiang@2x.png" alt />
         <h3>派大星</h3>
         <p>
           <span>
-            <img src="./../../assets/logo.png" alt />
+            <img src="./sidebar-img/icon_huangguan@2x.png" alt />
           </span>
           大众会员
           <span>></span>
@@ -18,28 +18,28 @@
         <ul>
           <li>
             <router-link to="/sidebar">
-              <img src="./../../assets/logo.png" alt />
+              <img src="./sidebar-img/article_icon_1@2x.png" alt />
               钱包
             </router-link>
           </li>
           <li>
             <router-link to="/sidebar">
-              <img src="./../../assets/logo.png" alt />订单
+              <img src="./sidebar-img/crticle_icon_2@2x.png" alt />订单
             </router-link>
           </li>
           <li>
             <router-link to="/sidebar">
-              <img src="./../../assets/logo.png" alt />行程
+              <img src="./sidebar-img/article_icon_3@2x.png" alt />行程
             </router-link>
           </li>
           <li>
             <router-link to="/sidebar">
-              <img src="./../../assets/logo.png" alt />驾驶证
+              <img src="./sidebar-img/article_icon_4@2x.png" alt />驾驶证
             </router-link>
           </li>
           <li>
             <router-link to="/sidebar">
-              <img src="./../../assets/logo.png" alt />设置
+              <img src="./sidebar-img/article_icon_5@2x.png" alt />设置
             </router-link>
           </li>
         </ul>
@@ -153,7 +153,6 @@ export default {
             margin-right: 0.12rem;
             width: 0.24rem;
             height: 0.2rem;
-            background: rgb(44, 43, 43);
           }
         }
       }

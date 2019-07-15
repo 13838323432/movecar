@@ -1,10 +1,14 @@
 <template>
-  <div>
+  <div class="shopcarbox">
     <side></side>
 <top></top>
 <banner></banner>
+<router-link to="/home">
 <local region="郑州" district='郑州动物动物园自助点' remark='该门店仅支持自助取车' class="shopone"></local>
+</router-link>
+<router-link to="/home">
 <local region="郑州" district='郑州动物动物园自助点' remark='该门店仅支持自助取车' class="border-line"></local>
+</router-link>
 <time_></time_>
 <button_ text="立即选车"></button_>
 <carlist></carlist>
@@ -29,7 +33,6 @@ import carlist from "./carlist"
  export default {
   data() {
     return {
-
     }
   },
   methods: {
@@ -48,5 +51,7 @@ import carlist from "./carlist"
 </script >
 
 <style scoped lang='less'>
-
+.shopcarbox{
+  padding-top:.45rem;
+}
 </style>

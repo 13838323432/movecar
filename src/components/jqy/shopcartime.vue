@@ -1,282 +1,150 @@
 <template>
-  <div class="time">
-    <div class="nowtime">
-      <p class="nowdate"></p>
-      <p class="nowweek"></p>
+  <div class="chose-time">
+    <div>
+      <p @touchstart="f1()" class="begin">
+        <span>请选择开始时间</span>
+      </p>
+      <p @touchstart="fn()" class="end">
+        <span>请选择结束时间</span>
+      </p>
     </div>
-    <div class="adjust">
-      <span id="show">1天</span>
-      <input type="range" step="1" value="1" max="10" min="1" name="1" id="time_" @input="change" />
-    </div>
-    <div class="futime">
-      <p class="fudate"></p>
-      <p class="fuweek"></p>
-    </div>
+    <van-datetime-picker
+  v-model="currentDate"
+  type="date"
+  :min-date="minDate"
+  @change="change"
+  style="background:#eee;"
+  :class="{show:bol}"
+/>
+
+    <van-datetime-picker
+  v-model="currentDate"
+  type="date"
+  :min-date="minDate_"
+  @change="change_"
+  style="background:#eee;"
+  :class="{show_:bol_}"
+/>
   </div>
 </template>
 
 <script>
 export default {
   data() {
-    return {};
-  },
-  mounted() {
-    var nowday = document.getElementsByClassName("nowdate")[0];
-    var nowweek = document.getElementsByClassName("nowweek")[0];
-
-    var fuday = document.getElementsByClassName("fudate")[0];
-    var fuweek = document.getElementsByClassName("fuweek")[0];
-    let nowtime = new Date();
-    let day = nowtime.getDate();
-    let fuday_ = nowtime.getDate() + 1;
-    let week = nowtime.getDay();
-    let fuweek_ = nowtime.getDay() + 1;
-    let month = nowtime.getMonth();
-    console.log(fuweek);
-    console.log(day, week);
-    console.log(fuday_, fuweek_);
-    switch (fuweek_) {
-      case 0:
-        fuweek.innerHTML = "星期日";
-        break;
-      case 1:
-        fuweek.innerHTML = "星期一";
-        break;
-      case 2:
-        fuweek.innerHTML = "星期二";
-        break;
-      case 3:
-        fuweek.innerHTML = "星期三";
-        break;
-      case 4:
-        fuweek.innerHTML = "星期四";
-        break;
-      case 5:
-        fuweek.innerHTML = "星期五";
-        break;
-      case 6:
-        fuweek.innerHTML = "星期六";
-        break;
-      case 7:
-        fuweek.innerHTML = "星期日";
-        break;
-    }
-    switch (month) {
-      case 0:
-        fuday.innerHTML = "1月" + fuday_ + "日";
-        break;
-      case 1:
-        fuday.innerHTML = "2月" + fuday_ + "日";
-        break;
-      case 2:
-        fuday.innerHTML = "3月" + fuday_ + "日";
-        break;
-      case 3:
-        fuday.innerHTML = "4月" + fuday_ + "日";
-        break;
-      case 4:
-        fuday.innerHTML = "5月" + fuday_ + "日";
-        break;
-      case 5:
-        fuday.innerHTML = "6月" + fuday_ + "日";
-        break;
-      case 6:
-        fuday.innerHTML = "7月" + fuday_ + "日";
-        break;
-      case 7:
-        fuday.innerHTML = "8月" + fuday_ + "日";
-        break;
-      case 8:
-        fuday.innerHTML = "9月" + fuday_ + "日";
-        break;
-      case 9:
-        fuday.innerHTML = "10月" + fuday_ + "日";
-        break;
-      case 10:
-        fuday.innerHTML = "11月" + fuday_ + "日";
-        break;
-      case 11:
-        fuday.innerHTML = "12月" + fuday_ + "日";
-        break;
-    }
-    switch (week) {
-      case 0:
-        nowweek.innerHTML = "星期日";
-        break;
-      case 1:
-        nowweek.innerHTML = "星期一";
-        break;
-      case 2:
-        nowweek.innerHTML = "星期二";
-        break;
-      case 3:
-        nowweek.innerHTML = "星期三";
-        break;
-      case 4:
-        nowweek.innerHTML = "星期四";
-        break;
-      case 5:
-        nowweek.innerHTML = "星期五";
-        break;
-      case 6:
-        nowweek.innerHTML = "星期六";
-        break;
-    }
-    switch (month) {
-      case 0:
-        nowday.innerHTML = "1月" + day + "日";
-        break;
-      case 1:
-        nowday.innerHTML = "2月" + day + "日";
-        break;
-      case 2:
-        nowday.innerHTML = "3月" + day + "日";
-        break;
-      case 3:
-        nowday.innerHTML = "4月" + day + "日";
-        break;
-      case 4:
-        nowday.innerHTML = "5月" + day + "日";
-        break;
-      case 5:
-        nowday.innerHTML = "6月" + day + "日";
-        break;
-      case 6:
-        nowday.innerHTML = "7月" + day + "日";
-        break;
-      case 7:
-        nowday.innerHTML = "8月" + day + "日";
-        break;
-      case 8:
-        nowday.innerHTML = "9月" + day + "日";
-        break;
-      case 9:
-        nowday.innerHTML = "10月" + day + "日";
-        break;
-      case 10:
-        nowday.innerHTML = "11月" + day + "日";
-        break;
-      case 11:
-        nowday.innerHTML = "12月" + day + "日";
-        break;
+    return {
+    currentDate: new Date(),
+    minDate:new Date(),
+    minDate_:new Date(),
+    bol:true,
+    bol_:true,
+    text:'',
     }
   },
-  methods: {
-    change() {
-      let time = document.getElementById("time_");
-      let date = document.getElementById("show");
-      date.innerHTML = time.value + "天";
-
-      var fuday = document.getElementsByClassName("fudate")[0];
-      var fuweek = document.getElementsByClassName("fuweek")[0];
-      fuday.innerHTML = "";
-      fuweek.innerHTML = "";
-      let nowtime_ = new Date();
-      let date_=nowtime_.getDate()+4;
-      console.log(date_)
-      let newtime=new Date("2019 7 "+date_)
-        console.log(newtime)
-      let month = nowtime_.getMonth();
-      // switch (fuweek_) {
-      //   case 0:
-      //     fuweek.innerHTML = "星期日";
-      //     break;
-      //   case 1:
-      //     fuweek.innerHTML = "星期一";
-      //     break;
-      //   case 2:
-      //     fuweek.innerHTML = "星期二";
-      //     break;
-      //   case 3:
-      //     fuweek.innerHTML = "星期三";
-      //     break;
-      //   case 4:
-      //     fuweek.innerHTML = "星期四";
-      //     break;
-      //   case 5:
-      //     fuweek.innerHTML = "星期五";
-      //     break;
-      //   case 6:
-      //     fuweek.innerHTML = "星期六";
-      //     break;
-      //   case 7:
-      //     fuweek.innerHTML = "星期日";
-      //     break;
-      // }
-      // switch (month) {
-      //   case 0:
-      //     fuday.innerHTML = "1月" + fuday_ + "日";
-      //     break;
-      //   case 1:
-      //     fuday.innerHTML = "2月" + fuday_ + "日";
-      //     break;
-      //   case 2:
-      //     fuday.innerHTML = "3月" + fuday_ + "日";
-      //     break;
-      //   case 3:
-      //     fuday.innerHTML = "4月" + fuday_ + "日";
-      //     break;
-      //   case 4:
-      //     fuday.innerHTML = "5月" + fuday_ + "日";
-      //     break;
-      //   case 5:
-      //     fuday.innerHTML = "6月" + fuday_ + "日";
-      //     break;
-      //   case 6:
-      //     fuday.innerHTML = "7月" + fuday_ + "日";
-      //     break;
-      //   case 7:
-      //     fuday.innerHTML = "8月" + fuday_ + "日";
-      //     break;
-      //   case 8:
-      //     fuday.innerHTML = "9月" + fuday_ + "日";
-      //     break;
-      //   case 9:
-      //     fuday.innerHTML = "10月" + fuday_ + "日";
-      //     break;
-      //   case 10:
-      //     fuday.innerHTML = "11月" + fuday_ + "日";
-      //     break;
-      //   case 11:
-      //     fuday.innerHTML = "12月" + fuday_ + "日";
-      //     break;
-      // }
-    }
+  mounted(){
+document.getElementsByClassName('van-picker__columns')[0].style.width=100+'%';
+document.getElementsByClassName('van-picker__columns')[1].style.width=100+'%';
+document.getElementsByClassName('van-picker__columns')[0].style.marginTop=1.2+'rem';
+document.getElementsByClassName('van-picker__columns')[1].style.marginTop=1.2+'rem';
+document.getElementsByClassName('van-picker__columns')[0].style.background="skyblue";
+document.getElementsByClassName('van-picker__columns')[1].style.background="skyblue";
+document.getElementsByClassName('van-picker-column__wrapper')[0].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column__wrapper')[1].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column')[1].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column')[2].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column')[3].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column')[4].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker-column')[5].style.fontSize=.2+'rem';
+document.getElementsByClassName('van-picker__confirm')[0].style.display="none";
+document.getElementsByClassName('van-picker__cancel')[0].style.display="none";
+document.getElementsByClassName('van-picker__confirm')[1].style.display="none";
+document.getElementsByClassName('van-picker__cancel')[1].style.display="none";
   },
-  components: {}
+  updated(){
+    // console.log('1')
+       let begin=document.getElementsByClassName('begin')[0].textContent.split('/');
+       let end=document.getElementsByClassName('end')[0].textContent.split('/');
+       console.log(begin,end)
+      let begintime=new Date(begin[0],begin[1],begin[2])
+      let endtime=new Date(end[0],end[1],end[2])
+      let begintimer=begintime.getTime()
+      let endtimer=endtime.getTime()
+      // console.log(begintime)
+      // console.log(endtime)
+      console.log(begintimer)
+      console.log(endtimer)
+      console.log((endtimer-begintimer)/1000/60/60/24 )
+  },
+  methods:{
+    change(e){
+      console.log(e.getValues())
+      this.text=e.getValues()
+      let begin=document.getElementsByClassName('begin')[0];
+      begin.innerHTML=this.text[0]+'/'+this.text[1]+'/'+this.text[2];
+    },
+    change_(e){
+      this.num=1
+      console.log(e.getValues())
+      this.text=e.getValues()
+        let end=document.getElementsByClassName('end')[0];
+        end.innerHTML=this.text[0]+'/'+this.text[1]+'/'+this.text[2];
+    },
+    f1(){
+       let begin=document.getElementsByClassName('begin')[0];
+      let nowyear=document.getElementsByClassName('van-picker-column__item--selected')[0].textContent;
+      let nowmonth=document.getElementsByClassName('van-picker-column__item--selected')[1].textContent;
+      let nowdate=document.getElementsByClassName('van-picker-column__item--selected')[2].textContent;
+      begin.innerHTML=nowyear+'/'+nowmonth+'/'+nowdate;
+      this.bol=!this.bol;
+      this.bol_=true;
+    },
+    fn(){
+      let end=document.getElementsByClassName('end')[0];
+      let nowyear=document.getElementsByClassName('van-picker-column__item--selected')[0].textContent;
+      let nowmonth=document.getElementsByClassName('van-picker-column__item--selected')[1].textContent;
+      let nowdate=document.getElementsByClassName('van-picker-column__item--selected')[2].textContent;
+      end.innerHTML=nowyear+'/'+nowmonth+'/'+nowdate;
+      this.bol_=!this.bol_;
+         this.bol=true;
+    }
+  }
 };
 </script >
 
 <style scoped lang='less'>
-.time {
-  height: 0.65rem;
-  padding: 0.1rem 0.17rem;
-  font-size: 0.2rem;
-  color: #333;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  .adjust {
-    position: relative;
-    #show {
-      margin-bottom: 0.04rem;
-      position: absolute;
-      top: -0.08rem;
-      left: 0.5rem;
-    }
+.chose-time {
+  height: 0.6rem;
+  width: 100%;
+  div {
+    padding: 0 0.17rem;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .nowweek,
-  .fuweek {
-    font-size: 0.12rem;
-    color: #959595;
+  p {
+    height:100%;
+    border-radius: 0.05rem;
+    text-indent: 0.05rem;
+    width: 1.5rem;
+    line-height:0.6rem;
+    font-size: 0.14rem;
+    margin-right: 0.1rem;
+    color:rgb(104, 100, 100);
   }
-
-  #time_ {
-    height: 2px;
-    background: rgb(116, 110, 110);
-    rang {
-      border-radius: 50%;
-    }
+  p:nth-child(2) {
+    margin-right: 0;
   }
+  .time {
+    display: none;
+  }
+  .time_ {
+    display: none;
+  }
+ .show{
+   display:none;
+ }
+ .show_{
+   display:none;
+ }
 }
 </style>

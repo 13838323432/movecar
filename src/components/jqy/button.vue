@@ -1,6 +1,6 @@
 <template>
   <div class="button_">
-    <router-link to="/home"><button>{{text}}</button></router-link>  
+  <button>{{text}}</button>
   </div>
 </template>
 
@@ -23,18 +23,18 @@ export default {
 
 <style scoped lang='less'>
 .button_{
+    height:.44rem;
     margin:0 .16rem;
     background:#f8c507;
     line-height:.44rem;
     text-align:center;
     font-size:.15rem;
     border-radius: .22rem;
-    a{
+     color:white; 
         button{
             background: none;
-            color:white;
              height:.44rem;
         }
-    }
+    
 }
 </style>

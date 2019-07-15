@@ -3,10 +3,10 @@
     <swiper :options="swiperOption">
       <!-- swiper-slides -->
       <!-- <slot name="swiper-img"></slot> -->
-    <swiper-slide>I'm Slide 1</swiper-slide>
-    <swiper-slide>I'm Slide 2</swiper-slide>
-    <swiper-slide>I'm Slide 3</swiper-slide>
-    <swiper-slide>I'm Slide 4</swiper-slide>
+    <swiper-slide><img src="./shopcar-img/car_jinke@2x.png" alt=""></swiper-slide>
+    <swiper-slide><img src="./shopcar-img/car_lanniao@2x.png" alt=""></swiper-slide>
+    <swiper-slide><img src="./shopcar-img/car_jinke@2x.png" alt=""></swiper-slide>
+    <swiper-slide><img src="./shopcar-img/car_jinke@2x.png" alt=""></swiper-slide>
       <div :class="{'swiper-pagination':bol}" slot="pagination"></div>
     </swiper>
   </div>
@@ -61,6 +61,7 @@ export default {
   width:100%;
 img{
   width:100%;
+  height:100%;
 }
 }
 </style>
