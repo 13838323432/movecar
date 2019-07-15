@@ -117,6 +117,7 @@ export default new Router({
   component: Login
 },
 =======
+    {
       path: '/Carlist',
       name: 'Carlist',
       component: Carlist
